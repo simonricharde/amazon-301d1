@@ -164,17 +164,17 @@ console.log(message('Allie'));
 console.log(messageNew('Allie'));
 
 
-//let Student = function(name, age, hometown) {
-// this.name = name;
-// this.age = age;
-// this.hometown = hometown;
-//};
-
-const Student = (name, age, hometown) => {
+let Student = function(name, age, hometown) {
   this.name = name;
   this.age = age;
-  this.hometown = hometown;  
+  this.hometown = hometown;
 };
+
+//const Student = (name, age, hometown) => {
+//  this.name = name;
+//  this.age = age;
+//  this.hometown = hometown;  
+//};
 
 let joe = new Student('Joe', 100, 'Schmoe');
 
@@ -186,9 +186,9 @@ console.log(joe);
 
 
 
-//Student.prototype.greeting = function() {
-//  return `Hi, my name is ${this.name}`;
-//};
+Student.prototype.greeting = () => {
+  return `Hi, my name is ${this.name}`;
+};
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this method to break!
@@ -198,7 +198,7 @@ console.log(joe);
 
 
 
-Student.courseName = function() {
+Student.courseName = () => {
   return 'This student is enrolled in Code 301.';
 };
 
@@ -209,17 +209,17 @@ console.log(Student.courseName());
 
 // STEP 11
 // How do arrow functions affect constructor functions?
-Student.prototype.scope = function() {
+Student.prototype.scope = () => {
   console.log(this);
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(joe.scope());
+console.log(joe.scope());
 
 Student.prototype.scopeArrow = () => console.log(this);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(joe.scopeArrow());
+console.log(joe.scopeArrow());
 
 // TODO: Write a COMMENT below to answer the following questions.
 // 1. What is "this" when joe.scope() is invoked?
